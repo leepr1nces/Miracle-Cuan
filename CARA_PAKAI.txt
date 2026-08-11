@@ -1,0 +1,84 @@
+================================================================
+  IDX SCREENER HADI LIE — PANDUAN SINGKAT
+  Sistem Pola Candlestick Proprietary
+================================================================
+
+INSTALASI PERTAMA KALI:
+  1. Double-click INSTALL.bat
+  2. Tunggu sampai selesai
+  Selesai! Cukup sekali saja.
+
+----------------------------------------------------------------
+
+CARA PAKAI HARIAN:
+
+  PAGI (sebelum market buka):
+    1. Double-click SCAN_HARIAN.bat
+    2. Pilih menu 3 = Screening Opening Pagi
+
+  SORE (setelah market tutup):
+    1. Export file XLS dari RTI Screener
+    2. Taruh file .xls ke folder:  data\
+    3. Double-click SCAN_HARIAN.bat
+    4. Pilih menu 1 = Scan Harian
+    5. Lihat hasil di folder:      output\
+
+  TANPA FILE XLS (data otomatis):
+    1. Double-click SCAN_HARIAN.bat
+    2. Pilih menu 2 = Scan Otomatis (yfinance)
+    Note: delay ~15 menit dari harga pasar
+
+----------------------------------------------------------------
+
+COMMAND LINE (opsional):
+
+  python run_screener.py              # Scan dari file XLS
+  python run_screener.py --auto       # Data otomatis yfinance
+  python run_screener.py --date 2026-08-06  # Paksa tanggal
+  python run_intraday.py              # Screening opening
+  python fetch_data.py                # Download data yfinance
+
+----------------------------------------------------------------
+
+STRUKTUR FOLDER:
+
+  data\       ← Taruh file .xls dari RTI di sini
+  output\     ← Hasil scan tersimpan otomatis di sini
+  logs\       ← Log aktivitas
+  config.py   ← Edit untuk ubah watchlist/parameter pola
+  README.md   ← Dokumentasi lengkap
+
+----------------------------------------------------------------
+
+POLA YANG DI-SCAN:
+
+  BOA         BreakOut Anticipation (6 kriteria)
+  ~BOA        Hampir BOA (4-5/6 kriteria)
+  P1          RCDrop1 (spike besar + vol kering)
+  P2          Spike Rebound
+  P3          Momentum (2 spike berturut)
+  OL Berturut Outside Line sequence (2-3 hari)
+  SV          Spike Valuasi (Rp800Jt–5M)
+  TT          Time Trading (bar ke-4/5 ideal)
+  Alert       Reversal setup (drop + vol kering)
+
+----------------------------------------------------------------
+
+TROUBLESHOOTING:
+
+  Python tidak ditemukan?
+    → Reinstall Python, centang "Add Python to PATH"
+
+  Error saat install library?
+    → Pastikan internet aktif, coba jalankan INSTALL.bat lagi
+
+  Tidak ada data?
+    → Pastikan file .xls ada di folder data\
+
+  File XLS error?
+    → Konversi ke .xlsx dengan LibreOffice dulu
+
+----------------------------------------------------------------
+
+Dibuat khusus untuk Hadi Lie | Agustus 2026
+================================================================
